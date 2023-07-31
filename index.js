@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const mysql = require("mysql2/promise");
-
+// Function to create a database connection
 const db = async () => {
   return await mysql.createConnection({
     host: "localhost",
@@ -10,7 +10,7 @@ const db = async () => {
     database: 'employee_tracker_db',
   });
 };
-
+// Main function to start the employee tracker app
 var employee_tracker = async function () {
   const connection = await db();
 
@@ -21,16 +21,19 @@ var employee_tracker = async function () {
     choices: ['View All Department', 'View All Roles', 'View All Employees', 'Add A Department', 'Add A Role', 'Add An Employee', 'Update An Employee Role', 'Log Out']
   }]).then(async (answers) => {
     if (answers.prompt === 'View All Department') {
+              // View all departments
       const [rows, fields] = await connection.query(`SELECT * FROM department`);
       console.log("Viewing All Departments: ");
       console.table(rows);
       employee_tracker();
     } else if (answers.prompt === 'View All Roles') {
+              // View all roles
       const [rows, fields] = await connection.query(`SELECT * FROM role`);
       console.log("Viewing All Roles: ");
       console.table(rows);
       employee_tracker();
     } else if (answers.prompt === 'View All Employees') {
+              // View all employees
       const [rows, fields] = await connection.query(`SELECT * FROM employee`);
       console.log("Viewing All Employees: ");
       console.table(rows);

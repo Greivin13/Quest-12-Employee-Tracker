@@ -1,7 +1,11 @@
+-- Drop the database if it exists to start fresh
 DROP DATABASE IF EXISTS employee_tracker_db;
+-- Create a new database
 CREATE DATABASE employee_tracker_db;
-
+-- Switch to the newly created database
 USE employee_tracker_db;
+
+-- Create three differnet tables to store information
 
 CREATE TABLE department(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,

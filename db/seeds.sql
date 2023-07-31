@@ -1,3 +1,5 @@
+-- Values that will go into each of their own tables (department, role, employee)
+-- "ignore" was used to avoid the  duplication of values
 INSERT IGNORE INTO department (name)
 VALUES
 ('Engineering'),
